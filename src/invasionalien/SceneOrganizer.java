@@ -22,7 +22,9 @@ import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -36,10 +38,12 @@ public class SceneOrganizer {
     private final Stage window;
     private Scene scenePrincipal,jugarScene,instructionsScene,scoresScene;
     private VBox rootMain,rootInstruction;
+    private BorderPane rootJugar;
 
     public SceneOrganizer(Stage stage) throws IOException {
         window = stage;
         this.setupSceneMain();
+        this.setupSceneJugar();
         this.setupSceneInstruction();
         window.setScene(scenePrincipal);
         
@@ -68,6 +72,11 @@ public class SceneOrganizer {
     }
     
     private void setupSceneJugar() {
+        rootJugar = new BorderPane();
+        Pane paneScreen = new Pane();
+        Jugador player = new Jugador(paneScreen);
+        rootJugar.setCenter(paneScreen);
+        jugarScene = new Scene(rootJugar, Constants.APP_WIDHT, Constants.APP_HEIGHT);
         
     }
     

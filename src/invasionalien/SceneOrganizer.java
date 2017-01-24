@@ -64,6 +64,7 @@ public class SceneOrganizer {
         titulo.setTextFill(Color.GREENYELLOW);
         titulo.setFont(new Font("Harrington", 40));
         titulo.setStyle("");
+        jugarBtn.setOnAction(e -> window.setScene(jugarScene));
         intruccioneBtn.setOnAction(e -> window.setScene(instructionsScene));
         rootMain.setAlignment(Pos.CENTER);
         rootMain.setSpacing(20);

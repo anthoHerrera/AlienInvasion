@@ -23,37 +23,34 @@ public class HumanShip {
     public HumanShip(Pane pane) {
         nave = new Ellipse(Constants.X_HUMAN_SHIP, Constants.Y_HUMAN_SHIP);
         cabina = new Ellipse(Constants.X_CABINA, Constants.Y_CABINA);
-        motorIzq = new Polygon(Constants.X1_MOTOR_IZQ,Constants.Y1_MOTOR_IZQ,Constants.X2_MOTOR_IZQ,
-                Constants.Y2_MOTOR_IZQ,Constants.X3_MOTOR_IZQ,Constants.Y3_MOTOR_IZQ);
-        motorDer = new Polygon(Constants.X1_MOTOR_DER,Constants.Y1_MOTOR_DER,Constants.X2_MOTOR_DER,
-                Constants.Y2_MOTOR_DER,Constants.X3_MOTOR_DER,Constants.Y3_MOTOR_DER);
+        motorIzq = new Polygon(Constants.X1_MOTOR,Constants.Y1_MOTOR,Constants.X2_MOTOR,
+                Constants.Y2_MOTOR,Constants.X3_MOTOR,Constants.Y3_MOTOR);
+        motorDer = new Polygon(Constants.X1_MOTOR,Constants.Y1_MOTOR,Constants.X2_MOTOR,
+                Constants.Y2_MOTOR,Constants.X3_MOTOR,Constants.Y3_MOTOR);
         nave.setFill(Color.TURQUOISE);
         cabina.setFill(Color.LIGHTGRAY);
         motorIzq.setFill(Color.DARKKHAKI);
         motorDer.setFill(Color.DARKKHAKI);
         pane.getChildren().addAll(nave,cabina,motorIzq,motorDer);
-        this.setXLoc(Constants.X_HUMAN_SHIP*10);
-        this.setYLoc(Constants.Y_HUMAN_SHIP*2);
+        this.setLocation(Constants.X_OFFSET,Constants.Y_OFFSET);
         
     }
     
-    public void setXLoc(double x) {
+    public void setLocation(double x,double y) {
         nave.setCenterX(x);
+        nave.setCenterY(y);
         cabina.setCenterX(x);
-        motorIzq.setTranslateX(x);
-        motorDer.setTranslateX(x);
+        cabina.setCenterY(y - 10);
+        motorIzq.setTranslateX(x - 25);
+        motorIzq.setTranslateY(y - 5);
+        motorDer.setTranslateX(x - 5);
+        motorDer.setTranslateY(y - 5);
     }
     
     public double getXLoc() {
         return nave.getCenterX();
     }
-    
-    public void setYLoc(double y) {
-        nave.setCenterY(y);
-        cabina.setCenterY(y - 10);
-        motorIzq.setTranslateX(y);
-        motorDer.setTranslateY(y - 32);
-    }
+  
     public double getYLoc() {
         return nave.getCenterY();
     }

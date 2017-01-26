@@ -11,15 +11,18 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Polygon;
 
 /**
- *
- * @author USER
+ * Clase que representa una nave humana
+ * @author AnthonyHerrera
  */
 public class HumanShip {
     private Ellipse nave;
     private Ellipse cabina;
     private Polygon motorIzq;
     private Polygon motorDer;
-
+    /**
+     * Construye la nave humana y la agrega al pane que la contendra
+     * @param pane donde se encontrara la nave
+     */
     public HumanShip(Pane pane) {
         nave = new Ellipse(Constants.X_HUMAN_SHIP, Constants.Y_HUMAN_SHIP);
         cabina = new Ellipse(Constants.X_CABINA, Constants.Y_CABINA);
@@ -27,24 +30,33 @@ public class HumanShip {
                 Constants.Y2_MOTOR,Constants.X3_MOTOR,Constants.Y3_MOTOR);
         motorDer = new Polygon(Constants.X1_MOTOR,Constants.Y1_MOTOR,Constants.X2_MOTOR,
                 Constants.Y2_MOTOR,Constants.X3_MOTOR,Constants.Y3_MOTOR);
+        this.setupHumanShip();
+        pane.getChildren().addAll(nave,cabina,motorIzq,motorDer);
+        this.setLocation(Constants.X_OFFSET);
+        
+    }
+    /**
+    Agrega color a los componetes que forman la nave
+    */
+    private void setupHumanShip() {
         nave.setFill(Color.TURQUOISE);
         cabina.setFill(Color.LIGHTGRAY);
         motorIzq.setFill(Color.DARKKHAKI);
         motorDer.setFill(Color.DARKKHAKI);
-        pane.getChildren().addAll(nave,cabina,motorIzq,motorDer);
-        this.setLocation(Constants.X_OFFSET,Constants.Y_OFFSET);
-        
     }
-    
-    public void setLocation(double x,double y) {
+    /**
+     * Setea la posicion de la nave
+     * @param x nueva posicion donde se encontrara la nave
+     */
+    public void setLocation(double x) {
         nave.setCenterX(x);
-        nave.setCenterY(y);
+        nave.setCenterY(Constants.Y_OFFSET);
         cabina.setCenterX(x);
-        cabina.setCenterY(y - 10);
+        cabina.setCenterY(Constants.Y_OFFSET - 10);
         motorIzq.setTranslateX(x - 25);
-        motorIzq.setTranslateY(y - 5);
+        motorIzq.setTranslateY(Constants.Y_OFFSET - 5);
         motorDer.setTranslateX(x - 5);
-        motorDer.setTranslateY(y - 5);
+        motorDer.setTranslateY(Constants.Y_OFFSET - 5);
     }
     
     public double getXLoc() {
@@ -54,4 +66,5 @@ public class HumanShip {
     public double getYLoc() {
         return nave.getCenterY();
     }
+
 }

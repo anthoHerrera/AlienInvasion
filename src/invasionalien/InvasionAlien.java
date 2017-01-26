@@ -10,8 +10,8 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
- *
- * @author USER
+ * La clase principal del juego
+ * @author AnthonyHerrera
  */
 public class InvasionAlien extends Application {
     

@@ -6,8 +6,8 @@
 package invasionalien;
 
 /**
- *
- * @author USER
+ * Clase que contiene las constantes que se van a utilizar en el juego
+ * @author AnthonyHerrera
  */
 public class Constants {
     //app
@@ -29,7 +29,8 @@ public class Constants {
     public static final double Y2_MOTOR = 30;
     public static final double X3_MOTOR = 15;
     public static final double Y3_MOTOR = 15;
+    //posiciones y desplazamientos de las naves
     public static final double X_OFFSET = 325;
     public static final double Y_OFFSET = 450;
-    
+    public static final double DESPLAZAMIENTO = 13;
 }

@@ -5,23 +5,32 @@
  */
 package invasionalien;
 
+import javafx.event.EventHandler;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 
 /**
- *
- * @author USER
+ * Esta clase representa a la persona que esta jugando
+ * @author AnthonyHerrera
  */
 public class Jugador {
+    //caracteristicas de la clase jugador
     private String nombre;
     private double puntaje;
     private HumanShip ship;
-
+    /**
+     * Construye un jugador
+     * @param pane donde se añade la nave del jugador
+     */
     public Jugador(Pane pane) {
         this.nombre = "";
         this.puntaje = 0;
         this.ship = new HumanShip(pane);
+        pane.addEventHandler(KeyEvent.KEY_PRESSED, new KeyHandler());
+        pane.setFocusTraversable(true);
+        pane.requestFocus();
     }
-
+    //Metodos get y set de la clase jugador
     public String getNombre() {
         return nombre;
     }
@@ -45,5 +54,37 @@ public class Jugador {
     public void setShip(HumanShip ship) {
         this.ship = ship;
     }
-    
+    /**
+    Clase que se encarga de manejar los eventos producidos por el jugador al 
+    presionar el teclado
+    */
+    private class KeyHandler implements EventHandler<KeyEvent> {
+
+        @Override
+        public void handle(KeyEvent keyEvent) {
+           switch(keyEvent.getCode()) {
+            case M:
+                break;
+            case ESCAPE:
+                break;
+            case SPACE:
+                break;
+            /*case E:
+                break;
+            No es necesario ya que se tiene el boton jugar el cual inicia el juego
+            */
+            case P:
+                break;
+            case LEFT:
+                ship.setLocation(ship.getXLoc() - Constants.DESPLAZAMIENTO);
+                break;
+            case RIGHT:
+                ship.setLocation(ship.getXLoc() + Constants.DESPLAZAMIENTO);
+                break;
+            default:
+                break;
+            }
+        }
+        
+    }
 }

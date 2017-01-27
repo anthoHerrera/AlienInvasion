@@ -76,10 +76,16 @@ public class Jugador {
             case P:
                 break;
             case LEFT:
-                ship.setLocation(ship.getXLoc() - Constants.DESPLAZAMIENTO);
+                if(ship.getXLoc() > Constants.LIMITE_IZQ) {
+                    ship.setLocation(ship.getXLoc() - Constants.DESPLAZAMIENTO);
+                }
+                
                 break;
             case RIGHT:
-                ship.setLocation(ship.getXLoc() + Constants.DESPLAZAMIENTO);
+                if(ship.getXLoc() < Constants.LIMITE_DER){
+                    ship.setLocation(ship.getXLoc() + Constants.DESPLAZAMIENTO);
+                }
+                
                 break;
             default:
                 break;

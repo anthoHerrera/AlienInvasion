@@ -83,6 +83,7 @@ public class SceneOrganizer {
     private void setupSceneJugar() throws IOException {
         rootJugar = new BorderPane();
         Pane paneScreen = new Pane();
+        paneScreen.setMaxWidth(Constants.APP_WIDHT);
         Jugador player = new Jugador(paneScreen);
         InputStream iss = Files.newInputStream(Paths.get("Fondos/ciudad.jpg"));
         BackgroundImage ima = new BackgroundImage(new Image(iss,640,500, false, true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
@@ -120,7 +121,8 @@ public class SceneOrganizer {
     /**
      * Crea el Scene de los maxiomos puntajes obtenidos en el juego
      */
-    private void setupSceneScores() { 
+    private void setupSceneScores() {
+        
     }
     
     public Stage getWindow() {

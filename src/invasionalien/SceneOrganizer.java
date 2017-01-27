@@ -120,8 +120,7 @@ public class SceneOrganizer {
     /**
      * Crea el Scene de los maxiomos puntajes obtenidos en el juego
      */
-    private void setupSceneScores() {
-        
+    private void setupSceneScores() { 
     }
     
     public Stage getWindow() {

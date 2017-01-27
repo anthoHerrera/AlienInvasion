@@ -33,4 +33,6 @@ public class Constants {
     public static final double X_OFFSET = 325;
     public static final double Y_OFFSET = 450;
     public static final double DESPLAZAMIENTO = 13;
+    public static final double LIMITE_IZQ = 30;
+    public static final double LIMITE_DER = 610;
 }

@@ -35,4 +35,11 @@ public class Constants {
     public static final double DESPLAZAMIENTO = 13;
     public static final double LIMITE_IZQ = 30;
     public static final double LIMITE_DER = 610;
+    //Armas
+    public static final double X_BULLET = 5;
+    public static final double Y_BULLET = 5;
+    public static final double MOVE_BULLET = 3;
+    public static final double X_MISSILE = 10;
+    public static final double Y_MISSILE = 25;
+    
 }

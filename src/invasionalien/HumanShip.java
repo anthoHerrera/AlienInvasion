@@ -19,7 +19,7 @@ public class HumanShip {
     private Ellipse cabina;
     private Polygon motorIzq;
     private Polygon motorDer;
-    private Bullet bullet;
+    //private Bullet bullet;
     /**
      * Construye la nave humana y la agrega al pane que la contendra
      * @param pane donde se encontrara la nave
@@ -31,7 +31,7 @@ public class HumanShip {
                 Constants.Y2_MOTOR,Constants.X3_MOTOR,Constants.Y3_MOTOR);
         motorDer = new Polygon(Constants.X1_MOTOR,Constants.Y1_MOTOR,Constants.X2_MOTOR,
                 Constants.Y2_MOTOR,Constants.X3_MOTOR,Constants.Y3_MOTOR);
-        bullet = new Bullet(false);
+        //bullet = new Bullet(pane,false);
         this.setupHumanShip();
         pane.getChildren().addAll(nave,cabina,motorIzq,motorDer);
         this.setLocation(Constants.X_OFFSET);
@@ -59,7 +59,6 @@ public class HumanShip {
         motorIzq.setTranslateY(Constants.Y_OFFSET - 5);
         motorDer.setTranslateX(x - 5);
         motorDer.setTranslateY(Constants.Y_OFFSET - 5);
-        bullet.setXlocation(x);
     }
     
     public double getXLoc() {

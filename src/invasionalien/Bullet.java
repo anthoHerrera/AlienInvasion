@@ -5,6 +5,10 @@
  */
 package invasionalien;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 
@@ -16,10 +20,13 @@ public class Bullet implements Runnable{
     private Ellipse bala;
     private boolean activate;
     
-    public Bullet(boolean activate) {
+    public Bullet(Pane pane,boolean activate,double x,double y) {
         this.bala = new Ellipse(Constants.X_BULLET,Constants.Y_BULLET);
         this.activate = activate;
         bala.setFill(Color.BURLYWOOD);
+        pane.getChildren().add(bala);
+        this.setXlocation(x);
+        this.setYlocation(y);
     }
 
     public boolean isActivate() {
@@ -31,17 +38,37 @@ public class Bullet implements Runnable{
     }
     
     public void setXlocation(double x) {
-        bala.setCenterX(bala.getCenterX() + x);
+        bala.setCenterX(x);
     }
     
     public void setYlocation(double y) {
         bala.setCenterY(bala.getCenterY() + y);
     }
     
+    public void setLocation(double x,double y) {
+        bala.setCenterX(x);
+        bala.setCenterY(y);
+    }
+    
     @Override
     public void run() {
         while(isActivate()) {
-            this.setYlocation(Constants.MOVE_BULLET);
+            setYlocation(Constants.MOVE_BULLET);
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Bullet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    if(bala.getCenterY() < Constants.LIMITE_SUPERIOR) {
+                        bala.setVisible(false);
+                        setActivate(false);
+                    }
+                }
+            });
+            
         }
     }
     

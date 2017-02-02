@@ -21,7 +21,6 @@ import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -82,13 +81,12 @@ public class SceneOrganizer {
      */
     private void setupSceneJugar() throws IOException {
         rootJugar = new BorderPane();
-        Pane paneScreen = new Pane();
-        paneScreen.setMaxWidth(Constants.APP_WIDHT);
-        Jugador player = new Jugador(paneScreen);
+        Jugador player = new Jugador();
+        player.getPantalla().setMaxWidth(Constants.APP_WIDHT);
         InputStream iss = Files.newInputStream(Paths.get("Fondos/ciudad.jpg"));
         BackgroundImage ima = new BackgroundImage(new Image(iss,640,500, false, true), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
         rootJugar.setBackground(new Background(ima));
-        rootJugar.setCenter(paneScreen);
+        rootJugar.setCenter(player.getPantalla());
         jugarScene = new Scene(rootJugar, Constants.APP_WIDHT, Constants.APP_HEIGHT);
         
     }
@@ -119,11 +117,12 @@ public class SceneOrganizer {
         instructionsScene = new Scene(rootInstruction, Constants.APP_WIDHT,Constants.APP_HEIGHT);
     }
     /**
-     * Crea el Scene de los maxiomos puntajes obtenidos en el juego
+     * Crea el Scene de los maximos puntajes obtenidos en el juego
      */
     private void setupSceneScores() {
         
     }
+    
     
     public Stage getWindow() {
         return window;
